@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { auth } from "../firebase";
 import { setUser } from "../actions/user";
 import Login from "./Login";
+import News from "./News";
+import Search from "./Search";
 import { ColorButton } from "../styles";
 // import firebase from "firebase/app";
 
@@ -21,7 +23,7 @@ const App = ({ user, setUser }) => {
       // remove user from state and navigate to login screen:
       setUser(null);
     });
-  }
+  };
 
   if (user?.displayName) {
     return (
@@ -30,6 +32,8 @@ const App = ({ user, setUser }) => {
         <ColorButton variant="contained" onClick={logout}>
           Logout
         </ColorButton>
+        <Search />
+        <News />
       </div>
     );
   } else {
